@@ -1,6 +1,22 @@
 # terraform-cloud-modules
 Reusable Terraform modules for multi-cloud platforms
 
+
+terraform-cloud-modules/
+└── multi-cloud/
+    └── spot-like-fleet-manager/
+        ├── main.tf
+        ├── variables.tf
+        ├── outputs.tf
+        ├── modules/
+        │   ├── aws/
+        │   │   ├── main.tf
+        │   │   ├── variables.tf
+        │   │   └── outputs.tf
+        │   ├── azure/
+        │   └── gcp/
+        └── README.md
+
 # Multi-Cloud Spot-Like Fleet Manager
 
 This Terraform module deploys cost-optimized spot/preemptible/low-priority compute fleets across AWS, Azure, and GCP.
