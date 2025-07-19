@@ -1,6 +1,20 @@
-# terraform-cloud-modules
-Reusable Terraform modules for multi-cloud platforms
+# 🌐 Spot-like Fleet Manager (Multi-Cloud)
 
+This Terraform module provides a unified, reusable framework to deploy *cost-efficient, preemptible compute resources* across major cloud providers — **AWS**, **Azure**, and **GCP**. It abstracts the complexity of setting up low-cost, ephemeral compute environments using Spot Instances, Low Priority VMs, and Preemptible VMs — enabling organizations to optimize cloud spend in a consistent and modular way.
+
+---
+
+## ✅ Supported Clouds & Features
+
+| Cloud Provider | Implementation Type       | Key Features                                                                 |
+|----------------|---------------------------|------------------------------------------------------------------------------|
+| AWS            | EC2 Auto Scaling Group     | Spot Instances, Launch Templates, Scaling Policies                          |
+| Azure          | Virtual Machine Scale Set  | Low Priority VMs, Load Distribution, Scaling                                |
+| GCP            | Instance Group Manager     | Preemptible VMs, Autoscaling, Managed Instance Templates                    |
+
+---
+
+## 📁 Project Structure
 
 terraform-cloud-modules/
 └── multi-cloud/
@@ -14,33 +28,27 @@ terraform-cloud-modules/
         │   │   ├── variables.tf
         │   │   └── outputs.tf
         │   ├── azure/
+        │   │   ├── main.tf
+        │   │   ├── variables.tf
+        │   │   └── outputs.tf
         │   └── gcp/
+        │       ├── main.tf
+        │       ├── variables.tf
+        │       └── outputs.tf
         └── README.md
 
-# Multi-Cloud Spot-Like Fleet Manager
-
-This Terraform module deploys cost-optimized spot/preemptible/low-priority compute fleets across AWS, Azure, and GCP.
+Each cloud module will be included based on the *_enabled flags.
 
 
-Key Features
-Cloud Provider Flexibility:
-You can choose your cloud provider by simply specifying a variable. The module will automatically deploy resources using the appropriate cloud-native constructs — such as AWS Spot Instances, Azure Low Priority VMs, or GCP Preemptible VMs — without changing your Terraform code structure.
+🌍 Multi-Cloud Ready – Seamlessly switch between cloud providers
 
-Cost Optimization:
-By leveraging spot, preemptible, or low-priority compute resources, the module helps reduce infrastructure costs significantly while maintaining the ability to scale dynamically.
+💸 Cost Efficient – Built entirely on Spot/Preemptible infrastructure
 
-Autoscaling and Resilience:
-The module provisions autoscaling groups or equivalent, with configurable minimum, maximum, and desired instance counts. This ensures your compute fleet can grow or shrink based on demand.
+♻️ Reusable Modules – Cloud-specific submodules are self-contained
 
-Unified Tagging and Resource Management:
-Tags and naming conventions are consistently applied across cloud providers for easier resource tracking, cost allocation, and governance.
+📦 Scalable Design – Each module supports autoscaling strategies
 
-Extensibility and Modularity:
-The architecture separates provider-specific implementations into submodules, enabling easy enhancements or additions for other clouds or advanced features in the future.
+🧪 Production-Ready Inputs – Highly configurable with clean defaults
 
-Intended Use Cases
-Running batch jobs or machine learning workloads that can tolerate interruptions and benefit from cost savings.
 
-Hosting development or testing environments with variable compute needs.
 
-Experimenting with multi-cloud infrastructure automation to achieve vendor flexibility and reduce lock-in risk.
